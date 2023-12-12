@@ -1,0 +1,80 @@
+.ask {
+    margin-top: 150px;
+    .title-section {
+        margin-bottom: 65px;
+        h3 {
+            font-weight: 600;
+            font-size: 40px;
+            letter-spacing: -0.45px;
+            text-transform: uppercase;
+            line-height: 1.2;
+            color: $headingColor;
+            text-align: center;
+        }
+    }
+}
+.ask-container {
+    width: 80%;
+    margin: auto;
+    padding: 50px;
+    border-radius: 30px;
+    background-color: #f9f9f9;
+    .ask-box{
+        padding: 30px 0;
+        border-bottom: 1px solid #EAEAEA;
+        h4{
+            font-size: 18px;
+            font-weight: 600;
+            color: $headingColor;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            span{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                font-size: 18px;
+                font-weight: 600;
+                color: #5F6168;
+                background-color: #FFF;
+                margin-left: auto;
+            }
+        }
+        .answer{
+            padding: 20px;
+            background-color: #FFF;
+            border-radius: 10px;
+            margin-top: 20px;
+            p{
+                color: #5F6168;
+                font-size: 16px;
+                font-weight: 500;
+                line-height: 26px;
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 480px){
+    .ask{
+        margin-top: 100px;
+        .title-section{
+            h3{
+                font-size: 34px;
+            }
+        }
+        .ask-container{
+            width: 95%;
+            padding: 50px 20px;
+            .ask-box{
+                h4{
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+}

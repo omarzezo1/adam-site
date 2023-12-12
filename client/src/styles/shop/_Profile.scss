@@ -1,0 +1,251 @@
+.profile-page {
+    margin-top: 70px;
+    padding: 30px 0;
+    .profile-page-container {
+        width: 100%;
+        h2 {
+            font-size: 24px;
+            font-weight: 600;
+            text-align: center;
+        }
+        .profile-wraper {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            .wishlist {
+                width: 49%;
+                height: fit-content;
+                border: 1px solid $mainColor;
+                border-radius: 5px;
+                padding: 20px;
+                h4 {
+                    font-size: 20px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    img {
+                        width: 25px;
+                        margin-right: 5px;
+                    }
+                }
+                .no-items {
+                    margin-top: 10px;
+                    text-align: center;
+                    font-size: 18px;
+                }
+                .product-wraper {
+                    margin-top: 20px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    .fav-product {
+                        width: 100%;
+                        padding: 30px 10px;
+                        margin-bottom: 10px;
+                        border-radius: 5px;
+                        display: flex;
+                        justify-content: flex-end;
+                        background-color: rgb(240, 247, 243);
+                        position: relative;
+                        .trash {
+                            position: absolute;
+                            top: 8px;
+                            left: 8px;
+                            padding: 5px;
+                            width: 35px;
+                            cursor: pointer;
+                        }
+                        .product-img {
+                            width: 100px;
+                            height: 140px;
+                            img {
+                                width: 100%;
+                                height: 100%;
+                                object-fit: cover;
+                            }
+                        }
+                        .product-details {
+                            margin-right: 20px;
+                            margin-top: 20px;
+                            h3 {
+                                font-size: 18px;
+                                color: $textColor;
+                            }
+                            .product-price {
+                                display: flex;
+                                justify-content: center;
+                                p {
+                                    margin-left: 10px;
+                                    font-size: 16px;
+                                    font-weight: bold;
+                                    &.old-price {
+                                        color: #999;
+                                        text-decoration: line-through;
+                                    }
+                                }
+                            }
+                            .add-to-cart {
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                background-color: $mainColor;
+                                padding: 5px;
+                                margin-top: 15px;
+                                cursor: pointer;
+                                h5 {
+                                    color: #fff;
+                                    font-size: 14px;
+                                    font-weight: 500;
+                                }
+                                img {
+                                    width: 25px;
+                                    margin-right: 5px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .orders {
+                width: 49%;
+                height: fit-content;
+                border: 1px solid $mainColor;
+                border-radius: 5px;
+                padding: 10px;
+                h4 {
+                    font-size: 20px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    img {
+                        width: 25px;
+                        margin-right: 5px;
+                    }
+                }
+                .no-items {
+                    margin-top: 10px;
+                    text-align: center;
+                    font-size: 18px;
+                }
+                .orders-wraper {
+                    width: 100%;
+                    margin-top: 20px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    .order {
+                        width: 100%;
+                        padding: 10px;
+                        border-radius: 20px;
+                        background-color: rgb(221, 221, 228);
+                        margin-bottom: 10px;
+                        .order-number {
+                            width: 100%;
+                            display: flex;
+                            align-items: center;
+                            font-size: 16px;
+                            font-weight: 500;
+                            margin-bottom: 20px;
+                            small {
+                                font-size: 24px;
+                                margin-right: auto;
+                            }
+                        }
+                        .products-wraper {
+                            width: 100%;
+                            .product-order {
+                                width: 100%;
+                                display: flex;
+                                justify-content: flex-end;
+                                margin-bottom: 10px;
+                                .product-order-details {
+                                    width: 100%;
+                                    margin-right: 20px;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: space-between;
+                                    .name-size {
+                                        h3 {
+                                            font-size: 16px;
+                                            color: $textColor;
+                                        }
+                                        p {
+                                            font-size: 16px;
+                                            text-align: center;
+                                            color: $textColor;
+                                            text-transform: uppercase;
+                                        }
+                                    }
+                                    .product-price {
+                                        p {
+                                            font-size: 18px;
+                                            color: $textColor;
+                                        }
+                                    }
+                                }
+                                .product-img {
+                                    width: 80px;
+                                    height: 100px;
+                                    background-color: #999;
+                                    border-radius: 10px;
+                                    padding: 5px;
+                                    position: relative;
+                                    span {
+                                        width: 20px;
+                                        height: 20px;
+                                        font-size: 12px;
+                                        border-radius: 50%;
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: center;
+                                        background-color: #333;
+                                        color: #fff;
+                                        position: absolute;
+                                        top: -5px;
+                                        left: 10px;
+                                    }
+                                    img {
+                                        width: 100%;
+                                        height: 100%;
+                                        object-fit: cover;
+                                        border-radius: 10px;
+                                    }
+                                }
+                            }
+                        }
+                        .order-status{
+                            display: flex;
+                            justify-content: space-between;
+                            margin-top: 30px;
+                            p{
+                                width: calc(95% / 3);
+                                font-size: 16px;
+                                text-align: center;
+                                &.price{
+                                    font-size: 18px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+//sm screen
+@media screen and (max-width: 567px) {
+    .profile-page {
+        .profile-page-container {
+            .profile-wraper {
+                flex-direction: column-reverse;
+                .wishlist,
+                .orders {
+                    width: 100%;
+                    margin-bottom: 20px;
+                }
+            }
+        }
+    }
+}

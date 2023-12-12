@@ -1,0 +1,212 @@
+.footer-blog {
+    width: 100%;
+    background-color: #111;
+    padding: 40px 0;
+    margin-top: 50px;
+    .container {
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            .email-form {
+                width: 40%;
+                .descbox {
+                    h5 {
+                        font-size: 17px;
+                        font-weight: 600;
+                        padding-bottom: 5px;
+                        font-family: $arabicFont;
+                        color: #fff;
+                    }
+                    p {
+                        font-size: 12px;
+                        font-weight: 500;
+                        font-family: $arabicFont;
+                        color: #fff;
+                    }
+                }
+                form {
+                    display: flex;
+                    margin-top: 20px;
+                    width: 60%;
+                    .email-input {
+                        width: 75%;
+                        display: block;
+                        padding: 10px 5px;
+                        border-radius: 0 3px 3px 0;
+                        font-weight: 12px;
+                        background-color: #fff;
+                        border: 1px solid #ccc;
+                        outline: none;
+                        font-family: $arabicFont;
+                    }
+                    .submit {
+                        width: 25%;
+                        border: none;
+                        background-color: $mainColor;
+                        color: #fff;
+                        font-size: 12px;
+                        font-family: $arabicFont;
+                        border-radius: 3px 0 0 3px;
+                        cursor: pointer;
+                    }
+                }
+            }
+            .contact-us {
+                width: 30%;
+                .descbox {
+                    h5 {
+                        font-size: 17px;
+                        font-weight: 600;
+                        padding-bottom: 5px;
+                        font-family: $arabicFont;
+                        color: #fff;
+                    }
+                    .whats-telegram {
+                        display: flex;
+                        margin-top: 5px;
+                        .contact {
+                            a {
+                                display: flex;
+                                align-items: center;
+                                margin-left: 20px;
+                                color: #fff;
+                                img {
+                                    width: 25px;
+                                    height: 25px;
+                                    margin-left: 5px;
+                                }
+                                small{
+                                    font-size: 12px;
+                                    font-weight: 500;
+                                    font-family: $arabicFont;
+                                }
+                            }
+                            &.whatsapp small{
+                                color: #25D366;
+                            }
+                            &.telegram small{
+                                color: #0088cc;
+                            }
+                        }
+                    }
+                }
+                .email-phone{
+                    width: 100%;
+                    margin-top: 20px;
+                    li{
+                        width: 100%;
+                        display: flex;
+                        align-items: center;
+                        margin-bottom: 5px;
+                        h6{
+                            font-size: 12px;
+                            font-family: $arabicFont;
+                            color: #fff;
+                        }
+                        a{
+                            display: block;
+                            margin-right: 10px;
+                            font-size: 14px;
+                            font-family: $arabicFont;
+                            color: $mainColor;
+                        }
+                    }
+                }
+            }
+        }
+        .break{
+            font-size: 20px;
+            font-weight: 500;
+            font-family: $arabicFont;
+            text-align: center;
+            color: $mainColor;
+            padding: 20px;
+            position: relative;
+            line-height: 1;
+            span{
+                font-size: 14px;
+                font-family: $arabicFont;
+                display: block;
+                margin-top: 5px;
+            }
+            &::before{
+                content: "";
+                width: 40%;
+                height: 1px;
+                background-color: #ccc;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                left: 0;
+            }
+            &::after{
+                content: "";
+                width: 40%;
+                height: 1px;
+                background-color: #ccc;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                right: 0;
+            }
+        }
+        .social-icons-wraper{
+            display: flex;
+            justify-content: space-between;
+            width: 50%;
+            margin: auto;
+            margin-top: 10px;
+            a{
+                display: block;
+                width: 40px;
+                height: 40px;
+                padding: 5px;
+                img{
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 480px){
+    .footer-blog{
+        .container{
+            .footer-container{
+                flex-direction: column;
+                .email-form{
+                    width: 85%;
+                    form{
+                        width: 90%;
+                    }
+                }
+                .contact-us{
+                    width: 100%;
+                    margin-top: 20px;
+                }
+                .email-phone{
+                    width: 100%;
+                }
+            }
+            .break{
+                font-size: 18px;
+                padding: 20px;
+                span{
+                    font-size: 14px;
+                }
+                &::before{
+                    width: 25%;
+                }
+                &::after{
+                    width: 25%;
+                }
+            }
+            .social-icons-wraper{
+                width: 95%;
+                margin-top: 10px;
+            }
+        }
+    }
+}

@@ -1,0 +1,189 @@
+.our-products{
+    width: 100%;
+    background-image: url('../images/imgs/bg-body4.jpg');
+    border-bottom: 1px solid #444;
+    padding: 80px 0 40px 0;
+    .container{
+        .our-products-wraper{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            h5{
+                color: $mainColor;
+                font-size: 14px;
+                font-weight: 600;
+                letter-spacing: 1px;
+                margin-bottom: 14px;
+            }
+            .title{
+                font-size: 36px;
+                font-weight: 600;
+                color: #FFF;
+            }
+            .products-container{
+                width: 100%;
+                height: 435px;
+                margin-top: 50px;
+                .swiper{
+                    width: 100%;
+                    height: 100%;
+                    .swiper-button-next{
+                        width: 40px;
+                        top: 20px;
+                        right: 180px;
+                        &::after{
+                            content: "";
+                            width: 8px;
+                            height: 5px;
+                            border: 2px solid $mainColor;
+                            border-left-color: transparent;
+                            border-top-color: transparent;
+                            transform: rotate(-45deg);
+                            right: 0;
+                        }
+                        &::before{
+                            content: "";
+                            width: 40px;
+                            height: 2px;
+                            right: -5px;
+                            background-color: $mainColor;
+                        }
+                    }
+                    .swiper-button-prev{
+                        width: 40px;
+                        top: 20px;
+                        left:unset ;
+                        right: 240px;
+                        &::before{
+                            content: "";
+                            width: 8px;
+                            height: 5px;
+                            border: 2px solid $mainColor;
+                            border-right-color: transparent;
+                            border-bottom-color: transparent;
+                            transform: rotate(-45deg);
+                        }
+                        &::after{
+                            content: "";
+                            width: 50px;
+                            height: 2px;
+                            left: -5px;
+                            background-color: $mainColor;
+                        }
+                    }
+                    .swiper-slide{
+                        width: 100%;
+                        height: 100%;
+                        display: flex;
+                        .slide-number{
+                            width: 20%;
+                            height: 100%;
+                            padding: 0 30px;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            p{
+                                width: 100%;
+                                font-size: 60px;
+                                font-weight: 100;
+                                text-align: left;
+                                color: #FFF;
+                                position: relative;
+                                &:first-of-type{
+                                    &::after{
+                                        content: "";
+                                        position: absolute;
+                                        bottom: 0;
+                                        right: 50%;
+                                        background-color: $mainColor;
+                                        width: 25px;
+                                        height: 1px;
+                                        transform: rotate(-20deg);
+                                    }
+                                }
+                                &:last-of-type{
+                                    text-align: right;
+                                    opacity: .2;
+                                }
+                            }
+                        }
+                        .product-img{
+                            width: 50%;
+                            height: 100%;
+                            border: 1px solid #444;
+                            overflow: hidden;
+                            background: linear-gradient(to bottom, #111 0%, #333 100%);
+                            img{
+                                width: 100%;
+                                height: 100%;
+                                object-fit: cover;
+                            }
+                        }
+                        .product-info{
+                            width: 30%;
+                            height: 100%;
+                            margin-top: 70px;
+                            margin-left: -40px;
+                            h3{
+                                font-size: 36px;
+                                font-weight: 600;
+                                color: #FFF;
+                                line-height: 1;
+                            }
+                            small{
+                                display: block;
+                                width: 100%;
+                                text-align: center;
+                                font-size: 12px;
+                                font-weight: 600;
+                                color: $mainColor;
+                                margin-top: 30px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 480px){
+    .our-products{
+        padding: 80px 0;
+        .container{
+            .our-products-wraper{
+                .products-container{
+                    height: fit-content;
+                    .swiper{
+                        width: 95%;
+                        .swiper-button-next, .swiper-button-prev{
+                            display: none;
+                        }
+                        .swiper-slide{
+                            flex-direction: column;
+                            .slide-number{
+                                display: none;
+                            }
+                            .product-img{
+                                width: 100%;
+                            }
+                            .product-info{
+                                width: 100%;
+                                margin: 0;
+                                margin-top: 40px;
+                                h3{
+                                    font-size: 30px;
+                                }
+                                small{
+                                    margin-top: 10px;
+                                    text-align: left;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

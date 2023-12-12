@@ -1,0 +1,250 @@
+.product-features {
+    .product-features-container {
+        margin-top: 75px;
+        padding: 148px 0 100px 0;
+        position: relative;
+        margin-bottom: 100px;
+        z-index: 1;
+        background: linear-gradient(109.6deg, rgba(0, 0, 0, 0.93) 11.2%, rgb(63, 61, 61) 78.9%);
+        .section-title {
+            margin-bottom: 150px;
+            h3 {
+                font-weight: 600;
+                font-size: 45px;
+                letter-spacing: -0.45px;
+                text-transform: uppercase;
+                color: #fff;
+                text-align: center;
+            }
+        }
+        &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: -1px;
+            width: 100%;
+            height: 61px;
+            background-image: url(../images/imgs/feature-bg-shape-1.png);
+            background-repeat: repeat-x;
+            background-position: center;
+            z-index: -1;
+        }
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 61px;
+            background-image: url(../images/imgs/feature-bg-shape-2.png);
+            background-repeat: repeat-x;
+            background-position: center;
+            z-index: -1;
+        }
+        .product-features-wraper {
+            width: 90%;
+            margin: auto;
+            display: flex;
+            .left,
+            .right {
+                width: 25%;
+                list-style: none;
+                li {
+                    margin-bottom: 65px;
+                    .shap-icon {
+                        display: flex;
+                        align-items: center;
+                        span {
+                            background: #fff;
+                            margin-right: 22px;
+                            -webkit-clip-path: polygon(
+                                45% 1.33975%,
+                                46.5798% 0.60307%,
+                                48.26352% 0.15192%,
+                                50% 0%,
+                                51.73648% 0.15192%,
+                                53.4202% 0.60307%,
+                                55% 1.33975%,
+                                89.64102% 21.33975%,
+                                91.06889% 22.33956%,
+                                92.30146% 23.57212%,
+                                93.30127% 25%,
+                                94.03794% 26.5798%,
+                                94.48909% 28.26352%,
+                                94.64102% 30%,
+                                94.64102% 70%,
+                                94.48909% 71.73648%,
+                                94.03794% 73.4202%,
+                                93.30127% 75%,
+                                92.30146% 76.42788%,
+                                91.06889% 77.66044%,
+                                89.64102% 78.66025%,
+                                55% 98.66025%,
+                                53.4202% 99.39693%,
+                                51.73648% 99.84808%,
+                                50% 100%,
+                                48.26352% 99.84808%,
+                                46.5798% 99.39693%,
+                                45% 98.66025%,
+                                10.35898% 78.66025%,
+                                8.93111% 77.66044%,
+                                7.69854% 76.42788%,
+                                6.69873% 75%,
+                                5.96206% 73.4202%,
+                                5.51091% 71.73648%,
+                                5.35898% 70%,
+                                5.35898% 30%,
+                                5.51091% 28.26352%,
+                                5.96206% 26.5798%,
+                                6.69873% 25%,
+                                7.69854% 23.57212%,
+                                8.93111% 22.33956%,
+                                10.35898% 21.33975%
+                            );
+                            clip-path: polygon(
+                                45% 1.33975%,
+                                46.5798% 0.60307%,
+                                48.26352% 0.15192%,
+                                50% 0%,
+                                51.73648% 0.15192%,
+                                53.4202% 0.60307%,
+                                55% 1.33975%,
+                                89.64102% 21.33975%,
+                                91.06889% 22.33956%,
+                                92.30146% 23.57212%,
+                                93.30127% 25%,
+                                94.03794% 26.5798%,
+                                94.48909% 28.26352%,
+                                94.64102% 30%,
+                                94.64102% 70%,
+                                94.48909% 71.73648%,
+                                94.03794% 73.4202%,
+                                93.30127% 75%,
+                                92.30146% 76.42788%,
+                                91.06889% 77.66044%,
+                                89.64102% 78.66025%,
+                                55% 98.66025%,
+                                53.4202% 99.39693%,
+                                51.73648% 99.84808%,
+                                50% 100%,
+                                48.26352% 99.84808%,
+                                46.5798% 99.39693%,
+                                45% 98.66025%,
+                                10.35898% 78.66025%,
+                                8.93111% 77.66044%,
+                                7.69854% 76.42788%,
+                                6.69873% 75%,
+                                5.96206% 73.4202%,
+                                5.51091% 71.73648%,
+                                5.35898% 70%,
+                                5.35898% 30%,
+                                5.51091% 28.26352%,
+                                5.96206% 26.5798%,
+                                6.69873% 25%,
+                                7.69854% 23.57212%,
+                                8.93111% 22.33956%,
+                                10.35898% 21.33975%
+                            );
+                            height: 75px;
+                            width: 75px;
+                            text-align: center;
+                            line-height: 80px;
+                            flex: 0 0 auto;
+                            display: inline-block;
+                            -webkit-transition: 0.6s;
+                            -moz-transition: 0.6s;
+                            -ms-transition: 0.6s;
+                            -o-transition: 0.6s;
+                            transition: 0.6s;
+                            padding-top: 7px;
+                            img {
+                                width: 35px;
+                                height: 35px;
+                            }
+                        }
+                        h6 {
+                            font-size: 17px;
+                            font-weight: 600;
+                            color: #fff;
+                            letter-spacing: 0.01em;
+                            line-height: 1.2;
+                            text-transform: uppercase;
+                        }
+                    }
+                }
+            }
+            .product-img {
+                width: 50%;
+                text-align: center;
+                position: relative;
+                .img-product {
+                    display: block;
+                    width: 350px;
+                    margin: auto;
+                    position: absolute;
+                    top: -10px;
+                    left: 25%;
+                    transform: rotate(-40deg);
+                }
+                .top-shap {
+                    position: absolute;
+                    top: -30px;
+                    right: 120px;
+                }
+                .bottom-shap {
+                    position: absolute;
+                    bottom: -100px;
+                    left: 150px;
+                    filter: blur(5px);
+                }
+                &::after {
+                    content: "";
+                    position: absolute;
+                    left: 50%;
+                    bottom: -130px;
+                    transform: translateX(-50%);
+                    width: 316px;
+                    height: 15px;
+                    background: rgba(131, 131, 131, 0.54);
+                    filter: blur(9px);
+                    border-radius: 50%;
+                    z-index: -1;
+                }
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 480px){
+    .product-features{
+        .product-features-container{
+            margin-bottom: 50px;
+            .section-title{
+                h3{
+                    font-size: 34px;
+                }
+            }
+            .product-features-wraper{
+                flex-direction: column;
+                .product-img{
+                    margin-bottom: 50px;
+                    .img-product{
+                        position: unset;
+                        transform: rotate(0deg);
+                    }
+                }
+                .right, .left{
+                    width: 100%;
+                    li{
+                        .shap-icon{
+                            h6{
+                                font-size: 20px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

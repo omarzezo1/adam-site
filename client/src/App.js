@@ -1,0 +1,52 @@
+import React from 'react';
+import Home from './pages/home/Home';
+import './styles/main.css';
+import {Routes, Route, BrowserRouter} from 'react-router-dom'
+import AboutUs from './pages/home/AboutUs';
+import ScrollToTop from './utilities/ScrollToTop'
+import Shop from './pages/shop/Shop';
+import Contacts from './pages/home/Contacts';
+import SingleBlog from './pages/blog/SingleBlog';
+import Blogs from './pages/blog/Blogs';
+import AllArticles from './pages/blog/AllArticles';
+import SingleProduct from './pages/shop/SingleProduct';
+import Login from './pages/shop/account/Login';
+import Signup from './pages/shop/account/Signup';
+import Cart from './pages/shop/order/Cart';
+
+import ManageProducts from './pages/admin/ManageProducts';
+import AddCategory from './pages/admin/AddCategory';
+import AddBrand from './pages/admin/AddBrand';
+import AddProduct from './pages/admin/AddProduct';
+
+function App() {
+  return (
+    <BrowserRouter>
+    <ScrollToTop>
+    <main className="App">
+      <Routes>
+        <Route path='/' element={<Home/>}/>
+        <Route path='/about' element={<AboutUs/>}/>
+        <Route path='/contacts' element={<Contacts/>}/>
+        <Route path='/shop' element={<Shop/>}/>
+        <Route path='/login' element={<Login/>}/>
+        <Route path='/signup' element={<Signup/>}/>
+
+        <Route path='/admin' element={<ManageProducts/>}/>
+        <Route path='/admin/manage-categories' element={<AddCategory/>}/>
+        <Route path='/admin/manage-brands' element={<AddBrand/>}/>
+        <Route path='/admin/add-product' element={<AddProduct/>}/>
+
+        <Route path='/cart' element={<Cart/>}/>
+        <Route path='/shop/product' element={<SingleProduct/>}/>
+        <Route path='/blogs' element={<Blogs/>}/>
+        <Route path='/blogs/all-articles' element={<AllArticles/>}/>
+        <Route path='/blogs/blog' element={<SingleBlog/>}/>
+      </Routes>
+    </main>
+    </ScrollToTop>
+    </BrowserRouter>
+  );
+}
+
+export default App;

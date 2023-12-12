@@ -1,0 +1,80 @@
+.our-blogs{
+    .section-title{
+        h2{
+            padding: 50px 0 80px 0;
+            font-weight: 600;
+            font-size: 45px;
+            letter-spacing: -0.45px;
+            color: $headingColor;
+            text-align: center;
+        }
+    }
+    .our-blogs-container{
+        width: 90%;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        .article{
+            width: calc(95% / 3);
+            .art-img{
+                width: 100%;
+                height: 200px;
+                -webkit-mask-position: top center;
+                mask-position: top center;
+                -webkit-mask-image: url(../images/imgs/blog-mask-1.png);
+                mask-image: url(../images/imgs/blog-mask-1.png);
+                -webkit-mask-position: top left;
+                mask-position: top left;
+                -webkit-mask-repeat: no-repeat;
+                mask-repeat: no-repeat;
+                -webkit-mask-size: 343.75px 212.76px;
+                mask-size: 343.75px 212.76px;
+                object-fit: cover;
+                margin-bottom: 26px;
+                img{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+            .art-details{
+                .art-title{
+                    a{
+                        display: block;
+                        font-size: 22px;
+                        font-weight: 600;
+                        line-height: 1.25;
+                        margin: 0 0 17px 0;
+                        letter-spacing: 0.52px;
+                        color: $headingColor;
+                        text-align: center;
+                        &:hover{
+                            color: $mainColor;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 480px){
+    .our-blogs{
+        .section-title{
+            h2{
+                font-size: 36px;
+            }
+        }
+        .our-blogs-container{
+            flex-wrap: wrap;
+            .article{
+                flex-shrink: 0;
+                width: 100%;
+                margin-bottom: 20px;
+                &:last-of-type{
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+}

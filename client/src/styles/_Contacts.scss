@@ -1,0 +1,204 @@
+.contacts-page{
+    width: 100%;
+    background-image: url('../images/imgs/bg-body4.jpg');
+    .container{
+        .contacts-page-wraper{
+            width: 100%;
+            position: relative;
+            top: 100px;
+            padding-bottom: 180px;
+            .title{
+                width: 100%;
+                h2{
+                    font-size: 48px;
+                    font-weight: 600;
+                    color: #FFF;
+                    text-align: center;
+                }
+            }
+            .contacts-container{
+                display: flex;
+                justify-content: space-between !important;
+                margin-top: 30px;
+                .contact-info{
+                    width: 49%;
+                    ul{
+                        li{
+                            display: flex;
+                            align-items: center;
+                            margin-bottom: 30px;
+                            img{
+                                width: 25px;
+                                height: 25px;
+                                display: block;
+                                margin-right: 15px;
+                            }
+                            span{
+                                font-size: 14px;
+                                color: #FFF;
+                                display: block;
+                            }
+                        }
+                    }
+                    .map{
+                        width: 520px;
+                        height: 360px;
+                        .map-frame{
+                            width: 100%;
+                            height: 100%;
+                            border: none;
+                            filter:saturate(30%) ;
+                        }
+                    }
+                }
+                .contact-form{
+                    width: 48%;
+                    form{
+                        width: 100%;
+                        input, textarea{
+                            display: block;
+                            width: 100%;
+                            font-size: 16px;
+                            color: #9b9b9b;
+                            font-weight: 300;
+                            padding: 15px 0;
+                            margin-bottom: 30px;
+                            border: none;
+                            outline: none;
+                            background-color: transparent;
+                            border-bottom: 2px solid #606060;
+                            resize: none;
+                            &:focus{
+                                border-color: $mainColor;
+                            }
+                        }
+                        .msg-box{
+                            label{
+                                display: block;
+                                font-size: 16px;
+                                color: #9b9b9b;
+                                margin-bottom: 15px;
+                            }
+                            textarea{
+                                padding: 15px 20px;
+                                border: 2px solid #606060;
+                                &:focus{
+                                    border-bottom-color: $mainColor;
+                                }
+                            }
+                        }
+                        .send-btn {
+                            width: fit-content;
+                            height: fit-content;
+                            margin-top: 40px;
+                            position: relative;
+                            padding: 30px 0;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            border: 1px solid transparent;
+                            button {
+                                display: block;
+                                color: #fff;
+                                font-size: 12px;
+                                font-weight: 600;
+                                border: none;
+                                background-color: transparent;
+                                text-transform: uppercase;
+                                letter-spacing: 1.5px;
+                                cursor: pointer;
+                                padding: 0 30px;
+                                position: relative;
+                                transition: all ease-in-out 0.5s;
+                                &::before {
+                                    content: "";
+                                    width: 1px;
+                                    height: 15px;
+                                    position: absolute;
+                                    top: -15px;
+                                    left: 0;
+                                    background-color: $mainColor;
+                                    transition: all ease-in-out 0.5s;
+                                }
+                                &::after {
+                                    content: "";
+                                    width: 1px;
+                                    height: 20px;
+                                    position: absolute;
+                                    bottom: -15px;
+                                    right: 0;
+                                    background-color: $mainColor;
+                                    transition: all ease-in-out 0.5s;
+                                }
+                            }
+                            &::before {
+                                content: "";
+                                width: 80px;
+                                height: 1px;
+                                position: absolute;
+                                right: 0;
+                                top: 5px;
+                                background-color: $mainColor;
+                                transition: all ease-in-out 0.5s;
+                            }
+                            &::after {
+                                content: "";
+                                width: 40px;
+                                height: 1px;
+                                position: absolute;
+                                left: 0;
+                                bottom: 5px;
+                                background-color: $mainColor;
+                                transition: all ease-in-out 0.5s;
+                            }
+                            &:hover {
+                                button::before,
+                                button::after {
+                                    height: 62px;
+                                }
+                                button::before {
+                                    top: -24px;
+                                }
+                                button::after {
+                                    bottom: -24px;
+                                }
+                                &::before,
+                                &::after {
+                                    width: 100%;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 480px){
+    .contacts-page{
+        .container{
+            .contacts-page-wraper{
+                .title{
+                    h2{
+                        font-size: 36px;
+                    }
+                }
+                .contacts-container{
+                    flex-direction: column;
+                    margin-top: 60px;
+                    .contact-info{
+                        width: 95%;
+                        margin-bottom: 30px;
+                        .map{
+                            width: 100%;
+                        }
+                    }
+                    .contact-form{
+                        width: 95%;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,250 @@
+.page-container {
+    background: linear-gradient(109.6deg, rgba(0, 0, 0, 0.93) 11.2%, rgb(20, 20, 20) 78.9%);
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    min-height: 100vh;
+    padding-top: 150px;
+    .main-section {
+        padding: 10px;
+        .container {
+            width: 95%;
+            display: flex;
+            justify-content: space-between;
+            .latest-news-container {
+                width: 68%;
+                padding: 20px;
+                border-radius: 20px;
+                flex-shrink: 0;
+                background-color: #111;
+                .section-title {
+                    h2 {
+                        padding: 0;
+                        font-weight: 800;
+                        font-size: 24px;
+                        line-height: 1.2;
+                        color: #fff;
+                        font-family: $arabicFont;
+                    }
+                }
+                .articles-wraper {
+                    margin-top: 20px;
+                    .main-article {
+                        width: 100%;
+                        height: 645px;
+                        .article-img {
+                            width: 100%;
+                            height: 80%;
+                            border-radius: 10px;
+                            position: relative;
+                            .category {
+                                position: absolute;
+                                top: 0;
+                                right: 15px;
+                                padding: 3px 5px;
+                                background-color: $mainColor;
+                                color: #fff;
+                                font-size: 12px;
+                                text-align: center;
+                                font-family: $arabicFont;
+                            }
+                            img {
+                                width: 100%;
+                                height: 100%;
+                                object-fit: cover;
+                                border-radius: 10px;
+                            }
+                        }
+                        .descbox {
+                            margin-top: 10px;
+                            padding: 10px 0;
+                            .title {
+                                a {
+                                    display: block;
+                                    padding: 5px 0;
+                                    font-size: 18px;
+                                    font-weight: 800;
+                                    color: $mainColor;
+                                    font-family: $arabicFont;
+                                }
+                            }
+                            .desc {
+                                p {
+                                    font-size: 13px;
+                                    overflow: hidden;
+                                    text-overflow: ellipsis;
+                                    display: -webkit-box;
+                                    -webkit-line-clamp: 2;
+                                    line-clamp: 2;
+                                    -webkit-box-orient: vertical;
+                                    font-family: $arabicFont;
+                                    color: #fff;
+                                }
+                            }
+                        }
+                    }
+                    .thumbnails-wraper {
+                        display: flex;
+                        flex-wrap: wrap;
+                        justify-content: space-between;
+                        margin-top: 50px;
+                        .thumbnail-article {
+                            width: calc(98% / 2);
+                            height: 300px;
+                            margin-bottom: 120px;
+                            flex-shrink: 0;
+                            .article-img {
+                                width: 100%;
+                                height: 80%;
+                                border-radius: 10px;
+                                position: relative;
+                                .category {
+                                    position: absolute;
+                                    top: 0;
+                                    right: 15px;
+                                    padding: 3px 5px;
+                                    background-color: $mainColor;
+                                    color: #fff;
+                                    font-size: 12px;
+                                    text-align: center;
+                                    font-family: $arabicFont;
+                                }
+                                img {
+                                    width: 100%;
+                                    height: 100%;
+                                    object-fit: cover;
+                                    border-radius: 10px;
+                                }
+                            }
+                            .descbox {
+                                margin-top: 10px;
+                                padding: 10px 0;
+                                .title {
+                                    a {
+                                        display: block;
+                                        padding: 5px 0;
+                                        font-size: 14px;
+                                        font-weight: 800;
+                                        color: $mainColor;
+                                        font-family: $arabicFont;
+                                    }
+                                }
+                                .desc {
+                                    p {
+                                        font-size: 13px;
+                                        overflow: hidden;
+                                        text-overflow: ellipsis;
+                                        display: -webkit-box;
+                                        -webkit-line-clamp: 2;
+                                        line-clamp: 2;
+                                        -webkit-box-orient: vertical;
+                                        font-family: $arabicFont;
+                                        color: #fff;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .more-articles {
+                    a {
+                        width: 100%;
+                        max-width: 300px;
+                        background-color: #000;
+                        color: #fff;
+                        padding: 5px;
+                        font-size: 15px;
+                        font-weight: 500;
+                        text-align: center;
+                        margin: 20px auto;
+                        border-radius: 3px;
+                        display: block;
+                        font-family: $arabicFont;
+                    }
+                }
+            }
+        }
+        .side-bar {
+            width: 30%;
+            flex-shrink: 0;
+            background-color: #111;
+            padding: 20px;
+            height: fit-content;
+            border-radius: 20px;
+            .section-title {
+                h2 {
+                    padding: 0;
+                    font-weight: 800;
+                    font-size: 24px;
+                    line-height: 1.2;
+                    font-family: $arabicFont;
+                    color: #fff;
+                }
+            }
+            .top-topics-wraper {
+                margin-top: 50px;
+                .topic {
+                    display: flex;
+                    width: 100%;
+                    border-bottom: 1px solid #444;
+                    padding-bottom: 5px;
+                    margin-bottom: 20px;
+                    &:last-of-type {
+                        border: none;
+                    }
+                    .topic-img {
+                        width: 100px;
+                        margin-left: 20px;
+                        img {
+                            width: 100%;
+                            object-fit: cover;
+                            border-radius: 5px;
+                        }
+                    }
+                    .topic-title {
+                        a {
+                            color: #FFF;
+                            display: block;
+                            font-size: 14px;
+                            font-weight: bold;
+                            font-family: $arabicFont;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 480px) {
+    .page-container {
+        padding-top: 120px;
+        .main-section {
+            .container {
+                width: 100%;
+                flex-direction: column;
+                .latest-news-container {
+                    width: 100%;
+                    padding: 20px 10px;
+                    .articles-wraper {
+                        .main-article {
+                            height: 300px;
+                            margin-bottom: 140px;
+                        }
+                        .thumbnails-wraper {
+                            flex-wrap: wrap;
+                            .thumbnail-article {
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+                .side-bar {
+                    width: 100%;
+                    margin-top: 30px;
+                }
+            }
+        }
+    }
+}
