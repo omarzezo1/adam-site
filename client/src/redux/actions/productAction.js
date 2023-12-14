@@ -4,7 +4,7 @@ import {CREATE_PRODUCT, DELETE_PRODUCT, GET_ALL_PRODUCTS, SINGLE_PRODUCT} from '
 export const createProduct = (formData)=> async(dispatch)=>{
     try{
         const config = {
-            headers:{"Content-Type": "multipart/form-data", Authorization: `Bearer ${localStorage.getItem("token")}`}
+            headers:{"Content-Type": "multipart/form-data", Authorization: `Bearer ${localStorage.getItem("userToken")}`}
         }
         const res = await baseURL.post('/api/v1/products', formData, config)
         dispatch({type: CREATE_PRODUCT, payload: res})
@@ -35,7 +35,7 @@ export const getSingleProduct = (id)=> async(dispatch)=>{
 export const deleteProduct = (id)=> async(dispatch)=>{
     try{
         const config = {
-            headers:{Authorization: `Bearer ${localStorage.getItem("token")}`}
+            headers:{Authorization: `Bearer ${localStorage.getItem("userToken")}`}
         }
         const res = await baseURL.delete(`/api/v1/products/${id}`, config)
         dispatch({type: DELETE_PRODUCT, payload: res})

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import { Link } from 'react-router-dom'
 import FooterLogo from '../../images/imgs/shop-logo1.png'
 import Facebook from '../../images/svg/facebook.svg'
@@ -10,7 +10,31 @@ import Search from '../../images/svg/search.svg'
 import Cart from '../../images/svg/cart-product.svg'
 import User from '../../images/svg/user.svg'
 
+import {useDispatch, useSelector} from 'react-redux'
+import { getCartItems } from "../../redux/actions/cartAction";
+
+
 const ShopFooter = () => {
+
+const [numOfCartItems, setNumOfCartItems] = useState("");
+const cartItemsData = useSelector(state=> state.cartReducer.cartItems)
+const dispatch = useDispatch()
+
+useEffect(()=>{
+    if(localStorage.getItem("userToken")){
+      dispatch(getCartItems())
+    }
+  },[])
+
+  useEffect(()=>{
+    if(cartItemsData){
+      if(cartItemsData.status === "success"){
+        setNumOfCartItems(cartItemsData.numOfCartItems)
+      }
+    }
+  },[cartItemsData])
+
+
   return (
     <footer className='footer-shop'>
         <div className='footer-container'>
@@ -32,7 +56,7 @@ const ShopFooter = () => {
 
             </div>
             <div className='end-footer'>
-                <p className='copyright'>© Copyrights, 2023 ADMOS <a href=''>Develped by Omar Abd Elaziz</a></p>
+                <p className='copyright'>© Copyrights, 2023 ADMOS <a href=''>Developed by Omar Abd Elaziz</a></p>
                 <div className='pages'>
                     <Link to={"/"}>Terms of Service</Link>
                     <Link to={"/"}>Privacy Policy</Link>
@@ -48,7 +72,7 @@ const ShopFooter = () => {
                     </li>
                     <li>
                         <Link to={"/cart"}><img src={Cart} alt='home'/></Link>
-                        <span>0</span>
+                        <span>{numOfCartItems ? numOfCartItems:0}</span>
                     </li>
                     <li>
                         <Link to={"/shop/profile"}><img src={User} alt='home'/></Link>

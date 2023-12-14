@@ -45,7 +45,7 @@ const Login = () => {
       }else if(loginUserData.status === 200){
         if(loginUserData.data){
           if(loginUserData.data.token)
-          localStorage.setItem("token", loginUserData.data.token)
+          localStorage.setItem("userToken", loginUserData.data.token)
           window.location.href="/shop"
         }
       }

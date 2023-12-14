@@ -1,0 +1,22 @@
+.profile-navigation{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+    list-style: none;
+    li{
+        a{
+            display: block;
+            padding: 10px 20px;
+            background-color: $mainColor;
+            color: #FFF;
+            font-size: 16px;
+            font-weight: 500;
+            border-radius: 10px;
+            margin-left: 10px;
+            flex-shrink: 0;
+            margin-top: 5px;
+        }
+    }
+}

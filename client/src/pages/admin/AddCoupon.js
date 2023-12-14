@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import {useDispatch, useSelector} from 'react-redux'
-import Sidebar from "../../utilities/Sidebar";
+import Sidebar from "../../components/admin/Sidebar";
 import { createCoupon } from "../../redux/actions/couponAction";
 
 const AddCoupon = () => {
@@ -36,13 +36,13 @@ const AddCoupon = () => {
       <div className="admin-page-wraper">
         <Sidebar/>
         <section className="dashboard-container">
-          <h3>إضافة كوبون جديد</h3>
+          <h3>ADD NEW COUPON</h3>
           <div className="add-wraper">
             <form>
-              <input type="text" placeholder="اسم الكوبون" value={couponName} onChange={(e)=> setCouponName(e.target.value)}/>
-              <input type="number" placeholder="نسبة الخصم" value={discount} onChange={(e)=> setDiscount(e.target.value)}/>
+              <input type="text" placeholder="Coupon Name" value={couponName} onChange={(e)=> setCouponName(e.target.value)}/>
+              <input type="number" placeholder="Coupon Discount" value={discount} onChange={(e)=> setDiscount(e.target.value)}/>
               <input type="date" value={date} onChange={(e)=> setDate(e.target.value)}/>
-              <input className="submit" type="submit" value="إضافة كوبون" onClick={(e)=> handelSubmit(e)}/>
+              <input className="submit" type="submit" value="Create Coupon" onClick={(e)=> handelSubmit(e)}/>
             </form>
           </div>
         </section>

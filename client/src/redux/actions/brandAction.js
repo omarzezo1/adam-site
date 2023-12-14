@@ -13,7 +13,7 @@ export const getAllBrands = ()=> async(dispatch)=>{
 export const createBrand = (formData)=> async(dispatch)=>{
     try{
         const config = {
-            headers:{"Content-Type": "multipart/form-data", Authorization: `Bearer ${localStorage.getItem("token")}`}
+            headers:{"Content-Type": "multipart/form-data", Authorization: `Bearer ${localStorage.getItem("userToken")}`}
         }
         const res = await baseURL.post('/api/v1/brands', formData, config)
         dispatch({type: CREATE_BRAND, payload: res.data})
@@ -25,7 +25,7 @@ export const createBrand = (formData)=> async(dispatch)=>{
 export const deleteBrand = (id)=> async(dispatch)=>{
     try{
         const config = {
-            headers:{Authorization: `Bearer ${localStorage.getItem("token")}`}
+            headers:{Authorization: `Bearer ${localStorage.getItem("userToken")}`}
         }
         const res = await baseURL.delete(`/api/v1/brands/${id}`, config)
         dispatch({type: DELETE_BRAND, payload: res.data})

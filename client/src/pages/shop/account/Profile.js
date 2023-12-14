@@ -1,18 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Cart from "../../images/svg/cart-black.svg";
-import Heart from "../../images/svg/heart-red.svg";
-import Img from "../../images/imgs/p-1.webp";
-import FavProduct from "../../components/products/FavProduct";
-import { getLoggedUserWishlist } from "../../redux/actions/wishlistAction";
-import ProfileNavigation from "../../utilities/ProfileNavigation";
-import { getAllOrders } from "../../redux/actions/orderAction";
-import serverUrl from '../../api/serverUrl'
+import Cart from "../../../images/svg/cart-black.svg";
+import Heart from "../../../images/svg/heart-red.svg";
+import FavProduct from "../../../components/shop/FavProduct";
+import { getLoggedUserWishlist } from "../../../redux/actions/wishlistAction";
+import ProfileNavigation from "../../../components/shop/ProfileNavigation";
+import { getAllOrders } from "../../../redux/actions/orderAction";
+import serverUrl from "../../../api/serverUrl";
+import ShopNavbar from "../../../components/shop/ShopNavbar";
+import ShopFooter from "../../../components/shop/ShopFooter";
+import { Link } from "react-router-dom";
 
 const Profile = () => {
   const [allWishies, setAllWishies] = useState([]);
   const [allOrders, setAllOrders] = useState([]);
-  const [allCartItems, setAllCartItems] = useState([]);
   const dispatch = useDispatch();
   const wishlist = useSelector(
     (state) => state.wishlistReducer.loggedUserWishlist
@@ -24,18 +25,11 @@ const Profile = () => {
       if (ordersData.status === 200) {
         if (ordersData.data) {
           setAllOrders(ordersData.data.data);
-          console.log(allOrders);
         }
       }
     }
   }, [ordersData]);
 
-  useEffect(() => {
-    if (allOrders) {
-      setAllCartItems(allOrders.cartItems);
-      console.log(allCartItems);
-    }
-  }, [allOrders]);
 
   useEffect(() => {
     dispatch(getLoggedUserWishlist());
@@ -54,15 +48,30 @@ const Profile = () => {
 
   return (
     <div className="profile-page">
-      <div className="container">
-        <div className="profile-page-container">
-          <h2>الصفحة الشخصية</h2>
+      <ShopNavbar />
+      <section className="page-intro">
+        <div className="overlay"></div>
+        <div className="rec"></div>
+        <div className="rec rec-bottom"></div>
+        <div className="container">
+          <div className="page-intro-container">
+            <div className="page-navigation">
+              <Link to="/shop">Home</Link>
+              <span>/</span>
+              <span className="page-name">PROFILE</span>
+            </div>
+            <h1 className="page-title">PROFILE</h1>
+          </div>
+        </div>
+      </section>
+      <section className="profile-container">
+      <h2>PROFILE PAGE</h2>
           <ProfileNavigation />
           <div className="profile-wraper">
             <div className="orders">
               <h4>
                 <img src={Cart} alt="orders" loading="lazy" />
-                الطلبات التي قمت بها
+                Your Orders
               </h4>
               <div className="orders-wraper">
                 {allOrders.length > 0 ? (
@@ -70,7 +79,7 @@ const Profile = () => {
                     <div className="order" key={index}>
                       <h5 className="order-number">
                         <small>#{order.id}</small>
-                        رقم الطلب
+                        Order's Number
                       </h5>
                       <div className="products-wraper">
                         {
@@ -107,14 +116,14 @@ const Profile = () => {
                     </div>
                   ))
                 ) : (
-                  <p className="no-items">لا يوجد لديك أي طلبات حتى الأن</p>
+                  <p className="no-items">No Orders Yet</p>
                 )}
               </div>
             </div>
             <div className="wishlist">
               <h4>
                 <img src={Heart} alt="wishlist" loading="lazy" />
-                قائمة المفضلة لديك
+                Wishlist
               </h4>
               <div className="product-wraper">
                 {allWishies.length > 0 ? (
@@ -123,14 +132,14 @@ const Profile = () => {
                   ))
                 ) : (
                   <p className="no-items">
-                    لا يوجد لديك أي منتجات في المفضلة حتى الأن
+                    No Products Yet
                   </p>
                 )}
               </div>
             </div>
           </div>
-        </div>
-      </div>
+      </section>
+      <ShopFooter/>
     </div>
   );
 };

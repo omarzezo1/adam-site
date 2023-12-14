@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Sidebar from "../../utilities/Sidebar";
+import Sidebar from "../../components/admin/Sidebar";
 import Trash from '../../images/svg/trash-white.svg'
+import Discount from '../../images/svg/offer.svg'
 import { deleteCoupon, getAllCoupons } from "../../redux/actions/couponAction";
 import { Link } from "react-router-dom";
 
@@ -25,7 +26,6 @@ const ManageCoupons = () => {
             if(couponsData.status === 200){
                 if(couponsData.data){
                     setCouponsList(couponsData.data.data)
-                    console.log(couponsList)
                 }
             }
         }
@@ -38,33 +38,35 @@ const ManageCoupons = () => {
         <div className="admin-page-wraper">
           <Sidebar />
           <section className="dashboard-container">
-            <h3>إدارة الكوبونات</h3>
+            <h3>MANAGE COUPONS</h3>
             <div className="add-wraper">
                 {
                     couponsList.length > 0 ? (
                         couponsList.map((coupon, index)=>(
                             <div className="coupon-card" key={index}>
                             <img className="trash" src={Trash} alt="delete-coupon" onClick={()=> handelDeleteCoupon(coupon._id)}/>
+                            <div className="coupon-img">
+                              <img src={Discount} alt="discount"/>
+                            </div>
                             <ul className="coupon-details">
                               <li>
-                              <p>{coupon.name}</p>
-                                :اسم الكوبون
+                                Coupon Name:
+                                <p>{coupon.name}</p>
                             </li>
                             <li>
-                              <p>{coupon.discount}%</p>
-                                :نسبة الخصم
+                                Coupon Discount:
+                                <p>{coupon.discount}%</p>
                             </li>
                             <li>
-                              <p>{coupon.expire}</p>
-                                :تاريخ الإنتهاء
+                                Expire Date:
+                                <p>{coupon.expire}</p>
                             </li>
                             </ul>
-                            <div className="coupon-img"></div>
                           </div>
                         ))
                     ):(
-                        <p className="no-items">لم يتم إنشاء كوبونات خصم حتى الأن
-                        <Link to='/admin/add-coupon'>إنشاء كوبون</Link>
+                        <p className="no-items">No Coupons Yet
+                        <Link to='/admin/add-coupon'>Create First Coupon</Link>
                         </p>
                     )
                 }

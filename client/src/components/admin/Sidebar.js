@@ -7,7 +7,7 @@ const Sidebar = () => {
     <h2>Adam Dashboard</h2>
     <ul>
       <li>
-        <Link to="/manage-orders">Manage Orders</Link>
+        <Link to="/admin/manage-orders">Manage Orders</Link>
       </li>
       <li>
         <Link to="/admin">Manage Products</Link>

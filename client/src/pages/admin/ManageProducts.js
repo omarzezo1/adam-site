@@ -9,7 +9,7 @@ const ManageProducts = () => {
 
   const [allProducts, setAllProducts] = useState([])
 
-  const products = useSelector(state=> state.productReducer.products)
+  const products = useSelector(state=> state.productReducer.allProducts)
 
   const dispatch = useDispatch()
 
@@ -39,7 +39,7 @@ const ManageProducts = () => {
           <div className="add-wraper">
             <div className='products-container'>
               {
-                allProducts ? (
+                allProducts.length > 0 ? (
                   allProducts.map((product, index)=>(
                     <ProductCardAdmin key={index} product={product}/>
                   ))

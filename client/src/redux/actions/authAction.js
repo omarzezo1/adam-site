@@ -21,7 +21,7 @@ export const loginUser = (loginData)=> async(dispatch)=>{
 
 export const getLoggedUser = ()=> async(dispatch)=>{
     try{
-        const  config = {headers:{Authorization: `Bearer ${localStorage.getItem("token")}`}}
+        const  config = {headers:{Authorization: `Bearer ${localStorage.getItem("userToken")}`}}
         const res = await baseURL.get('/api/v1/users/getMe', config)
         dispatch({type: GET_ME, payload: res})
     }catch(e){
@@ -31,7 +31,7 @@ export const getLoggedUser = ()=> async(dispatch)=>{
 
 export const userLogout = ()=> async(dispatch)=>{
     try{
-        const  config = {headers:{Authorization: `Bearer ${localStorage.getItem("token")}`}}
+        const  config = {headers:{Authorization: `Bearer ${localStorage.getItem("userToken")}`}}
         const res = await baseURL.delete('/api/v1/users/deleteMe', config)
         dispatch({type: LOGME_OUT, payload: res})
     }catch(e){

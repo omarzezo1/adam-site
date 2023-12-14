@@ -3,6 +3,7 @@ import {CREATE_PRODUCT, GET_ALL_PRODUCTS, SINGLE_PRODUCT, DELETE_PRODUCT, EDIT_P
 
 const initState = {
     products: [],
+    allProducts: [],
     singleProduct: {},
     deleteProduct: [],
     editProduct: [],
@@ -14,7 +15,7 @@ const productReducer = (state = initState, action)=>{
         case CREATE_PRODUCT:
             return {products: action.payload}
         case GET_ALL_PRODUCTS:
-            return {products: action.payload}   
+            return {allProducts: action.payload}   
         case SINGLE_PRODUCT:
             return {singleProduct: action.payload}
         case DELETE_PRODUCT:

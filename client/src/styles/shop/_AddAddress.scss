@@ -1,27 +1,30 @@
 .add-address-page{
-    margin-top: 100px;
+    padding-top: 180px;
+    background: linear-gradient(109.6deg, rgba(0, 0, 0, 0.95) 11.2%, rgb(63, 61, 61) 78.9%);
     h2{
         text-align: center;
-        font-size: 24px;
+        font-size: 36px;
+        font-weight: 600;
+        color: #FFF;
     }
     .add-address-containers{
         width: 90%;
         margin: auto;
         margin-top: 30px;
-        background-color: $mainColor;
+        background: linear-gradient(109.6deg, rgba(0, 0, 0, 0.95) 11.2%, rgb(63, 61, 61) 78.9%);
         padding: 20px;
         border-radius: 20px;
         .msg-wraper{
             width: 60%;
             padding: 15px 10px;
             text-align: center;
+            justify-content: center;
             background-color: #75b798;
             display: none;
-            justify-content: flex-end;
             margin: auto;
             margin-top: 20px;
             h5{
-                margin-right: 5px;
+                margin-left: 5px;
                 color: #051B11;
                 font-size: 16px;
             }
@@ -42,7 +45,6 @@
                 width: 80%;
                 padding: 20px 10px;
                 margin: auto;
-                text-align: right;
                 border-radius: 10px;
                 background-color: #111;
                 color: #FFF;
@@ -51,10 +53,10 @@
                 outline: none;
                 margin-bottom: 15px;
                 &.submit{
-                    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+                    background: -webkit-linear-gradient(left, #a18755, #8f6B29);
                     color: #FFF;                        
-                    font-weight: 500;
-                    font-size: 18px;
+                    font-weight: 600;
+                    font-size: 16px;
                     text-align: center;
                     cursor: pointer;
                 }
@@ -74,21 +76,20 @@
             }
             .address{
                 display: flex;
-                justify-content: flex-end;
                 position: relative;
                 width: 100%;
                 align-items: center;
                 padding: 10px;
                 margin-bottom: 20px;
                 border-radius: 20px;
-                background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+                background: -webkit-linear-gradient(left, #a18755, #8f6B29);
                 .trash-img{
                     width: 40px;
                     height: 40px;
                     padding: 5px;
                     cursor: pointer;
                     position: absolute;
-                    left: 19px;
+                    right: 19px;
                     top: 10px;
                 }
                 .home-img{
@@ -97,27 +98,27 @@
                     padding: 10px;
                     display: block;
                     border-radius: 20px;
-                    background-color: $mainColor;
+                    background-color: #333;
                 }
                 .address-details{
-                    margin-right: 20px;
+                    margin-left: 20px;
                     padding: 20px 0;
                     span{
                         display: flex;
                         align-items: center;
-                        justify-content: flex-end;
                         margin-bottom: 10px;
                         &:last-of-type{
                             margin-bottom: 0;
                         }
                         h5{
                             font-size: 16px;
-                            font-weight: 500;
-                            color: #000;
+                            font-weight: 600;
+                            color: $headingColor;
                         }
                         p{
                             font-size: 16px;
-                            margin-right: 5px;
+                            font-weight: 500;
+                            margin-left: 5px;
                             color: #FFF;
                         }
                     }

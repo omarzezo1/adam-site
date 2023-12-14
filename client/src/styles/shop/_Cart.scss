@@ -226,6 +226,25 @@
                     font-weight: 600;
                     color: $headingColor;
                 }
+                &.discount{
+                    background-color: rgb(13, 179, 77);
+                    padding: 5px;
+                    margin-top: 10px;
+                    h6, span{
+                        color: #FFF;
+                    }
+                }
+                &.expire{
+                    background-color: rgb(209, 36, 51);
+                    padding: 5px;
+                    margin-top: 10px;
+                    span{
+                        font-size: 16px;
+                        font-size: 500;
+                        text-align: center;
+                        color: #FFF;
+                    }
+                }
             }
             .cupon-box{
                 margin-top: 20px;
@@ -236,6 +255,7 @@
                     border: 1px solid #EAEAEA;
                     font-size: 14px;
                     background-color: #fff;
+                    outline: none;
                 }
                 button{
                     width: 40%;
@@ -265,6 +285,28 @@
                     margin-bottom: 15px;
                 }
             }
+        }
+    }
+    .empty{
+        text-align: center;
+        margin-top: 50px;
+        p{
+            width: 90%;
+            margin: auto;
+            font-size: 18px;
+            font-weight: 600;
+            color: $headingColor;
+        }
+        a{
+            display: block;
+            width: fit-content;
+            margin: auto;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: rgb(14, 173, 67);
+            color: #FFF;
+            font-size: 16px;
+            font-weight: 600;
         }
     }
 }
