@@ -32,8 +32,10 @@ const Profile = () => {
 
 
   useEffect(() => {
-    dispatch(getLoggedUserWishlist());
-    dispatch(getAllOrders());
+    if(localStorage.getItem("userToken")){
+      dispatch(getLoggedUserWishlist());
+      dispatch(getAllOrders());
+    }
   }, []);
 
   useEffect(() => {
@@ -91,7 +93,7 @@ const Profile = () => {
                                   <p>{Math.ceil(item.price) * item.count}.00 L.E</p>
                                 </div>
                                 <div className="name-size">
-                                  <h3>TSH22SCOT20387TM1</h3>
+                                  <h3>{item.product.title}</h3>
                                   <p>{item.color}</p>
                                   <p>{Math.ceil(item.price)}.00 L.E</p>
                                 </div>
@@ -110,8 +112,8 @@ const Profile = () => {
                       </div>
                       <div className="order-status">
                         <p className="price">{Math.ceil(order.totalOrderPrice)}.00 L.E</p>
-                        <p>{order.isPaid ? "تم الدفع":"لم يتم الدفع"}</p>
-                        <p>{order.isDelivered ? "تم التوصيل":"لم يتم التوصيل"}</p>
+                        <p>{order.isPaid ? "Paid":"Not paid"}</p>
+                        <p>{order.isDelivered ? "Delivered":"Not delivered"}</p>
                       </div>
                     </div>
                   ))

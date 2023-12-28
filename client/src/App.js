@@ -23,9 +23,14 @@ import ManageProducts from './pages/admin/ManageProducts';
 import AddCategory from './pages/admin/AddCategory';
 import AddBrand from './pages/admin/AddBrand';
 import AddProduct from './pages/admin/AddProduct';
+import EditProduct from './pages/admin/EditProduct';
 import AddCoupon from './pages/admin/AddCoupon';
 import ManageCoupons from './pages/admin/ManageCoupons';
 import ManageOrders from './pages/admin/ManageOrders';
+import OrderDetails from './pages/shop/order/OrderDetails'
+import ForgetPassword from './pages/shop/account/ForgetPassword';
+import ResetCode from './pages/shop/account/ResetCode';
+import ResetPassword from './pages/shop/account/ResetPassword';
 
 function App() {
   return (
@@ -41,20 +46,25 @@ function App() {
         <Route path='/login' element={<Login/>}/>
         <Route path='/signup' element={<Signup/>}/>
         <Route path='/profile' element={<Profile/>}/>
+        <Route path='/forget-password' element={<ForgetPassword/>}/>
+        <Route path='/reset-code' element={<ResetCode/>}/>
+        <Route path='/reset-password' element={<ResetPassword/>}/>
         <Route path='/add-address' element={<AddAddress/>}/>
 
         <Route path='/admin' element={<ManageProducts/>}/>
         <Route path='/admin/manage-categories' element={<AddCategory/>}/>
         <Route path='/admin/manage-brands' element={<AddBrand/>}/>
         <Route path='/admin/add-product' element={<AddProduct/>}/>
+        <Route path='/admin/edit-product/:id' element={<EditProduct/>}/>
         <Route path='/admin/add-coupon' element={<AddCoupon/>}/>
         <Route path='/admin/manage-coupons' element={<ManageCoupons/>}/>
         <Route path='/admin/manage-orders' element={<ManageOrders/>}/>
+        <Route path='/admin/order-details/:id' element={<OrderDetails/>}/>
 
         <Route path='/cart' element={<Cart/>}/>
         <Route path='/checkout' element={<Checkout/>}/>
 
-        <Route path='/shop/product' element={<SingleProduct/>}/>
+        <Route path='/shop/product/:id' element={<SingleProduct/>}/>
         <Route path='/blogs' element={<Blogs/>}/>
         <Route path='/blogs/all-articles' element={<AllArticles/>}/>
         <Route path='/blogs/blog' element={<SingleBlog/>}/>

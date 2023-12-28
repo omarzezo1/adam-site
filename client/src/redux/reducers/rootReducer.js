@@ -9,6 +9,7 @@ import cartReducer from './cartReducer'
 import couponReducer from './couponReducer'
 import addressReducer from './addressReducer'
 import orderReducer from './orderReducer'
+import productReviewsReducer from './productReviewsReducer'
 
 const rooReducer = combineReducers({
     categoryReducer: categoryReducer,
@@ -21,6 +22,7 @@ const rooReducer = combineReducers({
     couponReducer: couponReducer,
     addressReducer: addressReducer,
     orderReducer: orderReducer,
+    productReviewsReducer: productReviewsReducer,
 })
 
 export default rooReducer

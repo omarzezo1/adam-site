@@ -1,27 +1,170 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ShopNavbar from "../../components/shop/ShopNavbar";
 import ShopFooter from "../../components/shop/ShopFooter";
+import ProductCard from '../../components/shop/ProductCard'
 import { Link } from "react-router-dom";
-import ProductImg from "../../images/imgs/product-details-big-1.jpg";
-import Star from "../../images/svg/star.svg";
-
+import Heart from "../../images/svg/heart.svg";
+import HeartRed from "../../images/svg/heart-red.svg";
+import User from "../../images/svg/user.svg";
+import {
+  addToWishlist,
+  getLoggedUserWishlist,
+  removeProductFromWishlist,
+} from "../../redux/actions/wishlistAction";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import { getAllProducts, getSingleProduct } from "../../redux/actions/productAction";
+import { addToCart } from "../../redux/actions/cartAction";
+import ReactStars from "react-rating-stars-component";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
 import "swiper/css";
-import Product1 from "../../images/imgs/product-10.png";
-import Product3 from "../../images/imgs/product-3.png";
-import Product4 from "../../images/imgs/product-4.png";
-import Product5 from "../../images/imgs/product-5.png";
-import Product6 from "../../images/imgs/product-6.png";
-import ProductCard from "../../components/shop/ProductCard";
+
 
 import { Navigation } from 'swiper/modules';
+import { createProductReview } from "../../redux/actions/productReviewsAction";
 
 const SingleProduct = () => {
-  const [qty, setQty] = useState(1);
   const [boxId, setBoxId] = useState("1");
+  const [heart, setHeart] = useState(false);
+  const [allProducts, setAllProducts] = useState(false);
+  const [productId, setProductId] = useState("");
+  const [singleProduct, setSingleProduct] = useState({});
+  const [allProductReviews, setAllProductReviws] = useState([]);
+  const [toggleShowReviewBox, setToggleShowReviewBox] = useState(false)
+  const [review, setReview] = useState("")
+  const [rating, setRating] = useState("")
+  const [reviewCreated, setReviewCreated] = useState(false)
+  const [reviewError, setReviewError] = useState(false)
+
+  const dispatch = useDispatch();
+
+  const allWishlist = useSelector(
+    (state) => state.wishlistReducer.loggedUserWishlist
+  );
+  const productData = useSelector(
+    (state) => state.productReducer.singleProduct
+  );
+
+
+  const allProductsData = useSelector(
+    (state) => state.productReducer.allProducts
+  );
+
+  const writeReviewData = useSelector(
+    (state) => state.productReviewsReducer.review
+  );
+
+  useEffect(()=>{
+    dispatch(getAllProducts())
+  },[])
+
+
+
+  useEffect(()=>{
+    if(allProductsData){
+      if(allProductsData.status === 200){
+        if(allProductsData.data){
+          setAllProducts(allProductsData.data.data)
+        }
+      }
+    }
+  },[allProductsData])
+
+  const { id } = useParams();
+  useEffect(() => {
+    setProductId(id);
+  }, [id]);
+
+  //get single product ID
+  useEffect(() => {
+    if (productId) {
+      dispatch(getSingleProduct(productId));
+    }
+  }, [productId]);
+
+  useEffect(() => {
+    if (productData) {
+      if (productData.data) {
+        setSingleProduct(productData.data);
+        setAllProductReviws(productData.data.reviews)
+      }
+    }
+  }, [productData]);
+
+
+
+  //add or remove product from wishlist
+  const handelAddToWishlist = (productId) => {
+    if (heart) {
+      dispatch(removeProductFromWishlist(productId));
+      setHeart(false);
+    } else {
+      dispatch(
+        addToWishlist({
+          productId: productId,
+        })
+      );
+      setHeart(true);
+    }
+  };
+
+  //get logged user wishlist
+  useEffect(() => {
+    if(localStorage.getItem("userToken")){
+      dispatch(getLoggedUserWishlist());
+    }
+  }, []);
+
+  useEffect(() => {
+    if (allWishlist) {
+      if (allWishlist.status === "success") {
+        if (allWishlist.data) {
+          allWishlist.data.map((wish) => {
+            if (wish._id === productId) {
+              setHeart(HeartRed);
+            }
+          });
+        }
+      }
+    }
+  }, [allWishlist]);
+
+  const handelCart = () => {
+    dispatch(
+      addToCart({
+        productId: productId,
+      })
+    );
+    window.location = '/cart'
+  };
+
+
+  const ratingChanged = (newRating) => {
+    setRating(newRating);
+  };
+
+
+  const handelWriteReview = ()=>{
+    dispatch(createProductReview(productId,{
+      review,
+      rating,
+  }))
+  }
+
+  useEffect(()=>{
+    if(writeReviewData){
+      if(writeReviewData.status === 201){
+        setReviewCreated(true)
+      }else if(writeReviewData.status === 400){
+        setReviewError(true)
+      }
+    }
+  },[writeReviewData])
+
+
   return (
     <div className="single-product-page">
       <ShopNavbar />
@@ -36,36 +179,40 @@ const SingleProduct = () => {
               <span>/</span>
               <span className="product-details">Product Details</span>
             </div>
-            <h1 className="product-title">PROTEIN POWDER 2KG</h1>
+            <h1 className="product-title">{singleProduct.title}</h1>
           </div>
         </div>
       </section>
       <section className="product-details-container">
         <div className="product-imgs">
-          <img src={ProductImg} alt="product-1" />
+          <img src={singleProduct.imageCover} alt="product-1" />
         </div>
         <div className="product-details">
           <h3 className="product-title">PROTEIN POWDER 2KG</h3>
           <div className="stock-rating">
-            <span className="stock">in stock</span>
-            <span className="rating">
-              <img src={Star} alt="star" />
-              <img src={Star} alt="star" />
-              <img src={Star} alt="star" />
-              <img src={Star} alt="star" />
-              <img src={Star} alt="star" />
-            </span>
+            <span className="stock">{singleProduct.quantity} in stock</span>
+            <div className="rating">
+              <ReactStars
+              count={5}
+              onChange={ratingChanged}
+              size={30}
+              isHalf={true}
+              emptyIcon={<i className="far fa-star"></i>}
+              halfIcon={<i className="fa fa-star-half-alt"></i>}
+              fullIcon={<i className="fa fa-star"></i>}
+              activeColor="#8f6B29"
+              edit={false}
+              value={singleProduct.ratingsAverage}
+            />
+            </div>
           </div>
-          <p className="product-des">
-            Supex food is food produced by methods complying with the standards
-            of Rrganic farming. Standards vary Lorem ipsum do
-          </p>
+          <p className="product-des">{singleProduct.description}</p>
           <div className="product-price">
-            <p className="price-before">$210.00</p>
-            <p className="price-after">$110.00</p>
+            <p className="price-before">${Math.ceil(singleProduct.price)}</p>
+            <p className="price-after">${Math.ceil(singleProduct.priceAfterDiscount)}</p>
           </div>
           <div className="qty">
-            <h6>QUANTITY</h6>
+            {/* <h6>QUANTITY</h6>
             <div className="qty-input">
               <span className="incress" onClick={() => setQty(qty + 1)}>
                 +
@@ -77,8 +224,11 @@ const SingleProduct = () => {
               >
                 -
               </span>
+            </div> */}
+            <div className="add-to-wishlist" onClick={()=>handelAddToWishlist(singleProduct._id)}>
+              <img src={heart ? HeartRed:Heart} alt="add-to-wishlist"/>
             </div>
-            <div className="add-to-cart">Add To Cart</div>
+            <div className="add-to-cart" onClick={()=>handelCart(singleProduct._id)}>Add To Cart</div>
           </div>
         </div>
       </section>
@@ -90,10 +240,73 @@ const SingleProduct = () => {
         <div className="boxs-container">
           <div className="desc-box" style={{display: boxId === "1" ? "block":"none"}}>
             <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto.
+            {singleProduct.description}
             </p>
           </div>
-          <div className="reviews-box" style={{display: boxId === "2" ? "block":"none"}}>ssss</div>
+          <div className="reviews-box" style={{display: boxId === "2" ? "block":"none"}}>
+          <div className="add-new-reviews">
+                  {/* <p className="no-reviews">No Reviews Yet</p> */}
+                  <span className="write-review" onClick={()=>setToggleShowReviewBox(!toggleShowReviewBox)}>WRITE A REVIEW</span>
+                  <div className="success-msg" style={{display: reviewCreated ? "flex":"none"}}>
+                    <small>Success: </small>
+                    <p className="review-text">Review added successfully</p>
+                  </div>
+                  <div className="error-msg" style={{display: reviewError ? "flex":"none"}}>
+                    <small>Error: </small>
+                    <p className="review-text">You already added review on this product</p>
+                  </div>
+                  <div className="review-box" style={{display: toggleShowReviewBox ? "block":"none"}}>
+                    <div className="review-rating">
+                      <h5>Rating</h5>
+                      <ReactStars
+                      count={5}
+                      onChange={ratingChanged}
+                      size={30}
+                      isHalf={true}
+                      emptyIcon={<i className="far fa-star"></i>}
+                      halfIcon={<i className="fa fa-star-half-alt"></i>}
+                      fullIcon={<i className="fa fa-star"></i>}
+                      activeColor="#8f6B29"
+                      />
+                    </div>
+                    <textarea maxLength={200} placeholder="Write a review" value={review} onChange={(e)=>setReview(e.target.value)}></textarea>
+                    <button className="submit" onClick={handelWriteReview}>Submit Review</button>
+                  </div>
+                </div>
+            {
+              allProductReviews.length > 0 ? (
+                <div className="reviews-wraper">
+                  {
+                    allProductReviews.map((item, index)=>(
+                      <div className="review" key={index}>
+                      <div className="user">
+                        <img src={User} alt="user-img"/>
+                        <h6>{item.user.name}</h6>
+                      </div>
+                      <div className="rating">
+                      <ReactStars
+                      count={5}
+                      onChange={ratingChanged}
+                      size={30}
+                      isHalf={true}
+                      emptyIcon={<i className="far fa-star"></i>}
+                      halfIcon={<i className="fa fa-star-half-alt"></i>}
+                      fullIcon={<i className="fa fa-star"></i>}
+                      activeColor="#8f6B29"
+                      edit={false}
+                      value={item.rating}
+                      />
+                      </div>
+                      <p>{item.review}</p>
+                      </div>
+                    ))
+                  }
+                </div>
+              ):(
+                null
+              )
+            }
+          </div>
         </div>
       </div>
       <div className="look-alike">
@@ -120,30 +333,15 @@ const SingleProduct = () => {
             },
           }}
         >
-          <SwiperSlide>
-            <ProductCard productImg={Product1} productTitle={"Pro Rule OQ 01"}/>
-          </SwiperSlide>
-
-          <SwiperSlide>
-          <ProductCard productImg={Product3} productTitle={"Pro Rule OQ 01"}/>
-          </SwiperSlide>
-
-          <SwiperSlide>
-          <ProductCard productImg={Product4} productTitle={"Pro Rule OQ 01"}/>
-          </SwiperSlide>
-
-          <SwiperSlide>
-          <ProductCard productImg={Product5} productTitle={"Pro Rule OQ 01"}/>
-          </SwiperSlide>
-
-          <SwiperSlide>
-          <ProductCard productImg={Product6} productTitle={"Pro Rule OQ 01"}/>
-          </SwiperSlide>
-
-          <SwiperSlide>
-          <ProductCard productImg={Product5} productTitle={"Pro Rule OQ 01"}/>
-          </SwiperSlide>
-
+          {
+            allProducts.length > 0 ? (
+              allProducts.map((product, index)=>(
+                <SwiperSlide key={index}>
+                  <ProductCard product={product}/>
+                </SwiperSlide>
+              ))
+            ):null
+          }
         </Swiper>
         </div>
       </div>

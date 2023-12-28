@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import {loginUser} from '../../../redux/actions/authAction'
 import {useSelector, useDispatch} from 'react-redux'
 
-const Login = () => {
+const ResetPassword = () => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
 
@@ -66,16 +66,16 @@ const Login = () => {
             <div className="page-navigation">
               <Link to="/shop">Home</Link>
               <span>/</span>
-              <span className="page-name">LOGIN</span>
+              <span className="page-name">RESET PASSWORD</span>
             </div>
-            <h1 className="page-title">LOGIN</h1>
+            <h1 className="page-title">RESET PASSWORD</h1>
           </div>
         </div>
       </section>
       <section className="login-container">
         <div className="title-box">
-            <h3>LOGIN TO ADMOS.</h3>
-            <p>Don’t have an account? <Link to="/signup">Create a free account</Link></p>
+            <h3>RESET PASSWORD</h3>
+            <p>Reset Password For Your Email</p>
         </div>
         <div className="msg-box">
           {
@@ -103,9 +103,8 @@ const Login = () => {
                 <input id="email" value={email} type="email" placeholder="Enter Your E-mail" onChange={(e)=>setEmail(e.target.value)}/>
             </div>
             <div className="field">
-                <label htmlFor="password">Password</label>
+                <label htmlFor="password">New Password</label>
                 <input id="password" value={password} type="password" placeholder="Password" onChange={(e)=>setPassword(e.target.value)}/>
-                <Link to="/forget-password" className="forget-password">Forgot Password?</Link>
             </div>
             <button className="submit" type="submit" onClick={handelSubmit}>Login</button>
         </form>
@@ -115,4 +114,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default ResetPassword

@@ -5,7 +5,6 @@ const ProfileNavigation = () => {
   return (
     <ul className='profile-navigation'>
     <li><Link to="/add-address">ADD NEW ADDRESS</Link></li>
-    <li><Link to="/add-address">PERSONAL INFORMATION</Link></li>
     <li><Link to="/profile">PROFILE</Link></li>
   </ul>
   )

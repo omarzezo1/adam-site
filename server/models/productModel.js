@@ -37,7 +37,10 @@ const productSchema = new mongoose.Schema(
       type: Number,
     },
     availableColors: [String],
-    availableSizes: [String],
+    availableSizes: {
+      type: String,
+      required: [true, 'Size is required'],
+    },
     imageCover: {
       type: String,
       required: [true, 'Product Image cover is required'],

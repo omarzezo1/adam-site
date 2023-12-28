@@ -319,3 +319,24 @@
         }
     }
 }
+
+
+@media screen and (max-width: 576px){
+    .profile-page{
+        .profile-container{
+            .profile-wraper{
+                width: 98%;
+                flex-direction: column-reverse;
+                .wishlist{
+                    width: 100%;
+                    flex-shrink: 0;
+                    margin-bottom: 30px;
+                }
+                .orders{
+                    width: 100%;
+                    flex-shrink: 0;
+                }
+            }
+        }
+    }
+}

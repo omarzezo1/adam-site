@@ -107,7 +107,7 @@
                                         border: none;
                                         border-radius: 5px;
                                         cursor: pointer;
-                                        &:first-of-type{
+                                        &.edit-img{
                                             background-color: rgb(6, 160, 32);
                                         }
                                     }
@@ -142,6 +142,9 @@
                         font-size: 16px;
                         option{
                             font-size: 16px;
+                            &.selected{
+                                background-color: $mainColor;
+                            }
                         }
                     }
                 }

@@ -95,11 +95,12 @@
                 transition: all ease-in-out .3s;
             }
         }
-        button{
+        button, .edit{
             display: block;
             width: 45%;
-            padding: 10px 0;
+            padding: 4px 0 3px;
             font-size: 16px;
+            text-align: center;
             font-weight: 500;
             margin-right: 10px;
             color: #FFF;
@@ -110,6 +111,7 @@
             &.delete{
                 margin-right: 0;
                 background-color: rgb(185, 11, 11);
+                padding: 7px 0 7px;
             }
         }
     }

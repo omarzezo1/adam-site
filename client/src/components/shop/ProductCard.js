@@ -4,17 +4,22 @@ import Heart from "../../images/svg/heart.svg";
 import HeartRed from "../../images/svg/heart-red.svg";
 import { Link } from "react-router-dom";
 import { addToCart } from "../../redux/actions/cartAction";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
   addToWishlist,
   removeProductFromWishlist,
 } from "../../redux/actions/wishlistAction";
 
+import ReactStars from "react-rating-stars-component";
+
+
 const ProductCard = ({ product, favorite }) => {
   const [heart, setHeart] = useState(false);
   const dispatch = useDispatch();
  
-
+  const ratingChanged = (newRating) => {
+    console.log(newRating);
+  };
 
   //add or remove product from wishlist
   const handelAddToWishlist = (productId) => {
@@ -39,8 +44,8 @@ const ProductCard = ({ product, favorite }) => {
 }
 
 
-  const handelAddToCart = async (productId) => {
-    await dispatch(
+  const handelAddToCart = (productId) => {
+    dispatch(
       addToCart({
         productId,
       })
@@ -66,13 +71,19 @@ const ProductCard = ({ product, favorite }) => {
           </p>
         </div>
         <div className="rating">
-          <img src={Star} alt="star" />
-          <img src={Star} alt="star" />
-          <img src={Star} alt="star" />
-          <img src={Star} alt="star" />
-          <img src={Star} alt="star" />
+            <ReactStars
+              count={5}
+              onChange={ratingChanged}
+              size={30}
+              isHalf={true}
+              emptyIcon={<i className="far fa-star"></i>}
+              halfIcon={<i className="fa fa-star-half-alt"></i>}
+              fullIcon={<i className="fa fa-star"></i>}
+              activeColor="#8f6B29"
+              edit={false}
+              value={product.ratingsAverage}
+            />
         </div>
-        {/* src={favorite || heart ? HeartRed : Heart} */}
         <div className="add-to-cart">
           {
             favorite || heart ? (

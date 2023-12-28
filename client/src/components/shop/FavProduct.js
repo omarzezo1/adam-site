@@ -21,7 +21,9 @@ const FavProduct = ({favProduct}) => {
             productId,
         }))
         dispatch(removeProductFromWishlist(favProduct._id))
-        window.location.href = "/cart"
+        let list = JSON.parse(localStorage.getItem("favProductsAdam")).filter(el=> el !== favProduct._id)
+        localStorage.setItem("favProductsAdam", JSON.stringify(list))
+        window.location.reload()
     }
 
 

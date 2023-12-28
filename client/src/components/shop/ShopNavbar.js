@@ -37,7 +37,8 @@ const ShopNavbar = () => {
   const logout = (e) => {
     e.preventDefault();
     localStorage.removeItem("userToken");
-    window.location.href = "/shop";
+    localStorage.removeItem("favProductsAdam")
+    window.location.href = '/shop'
   };
 
   useEffect(() => {
@@ -138,7 +139,7 @@ const ShopNavbar = () => {
                 <li className="signup">
                   <NavLink to="/signup">
                     <img src={User} alt="login" />
-                    Signup
+                    Register
                   </NavLink>
                 </li>
               </>

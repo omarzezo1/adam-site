@@ -75,7 +75,14 @@ useEffect(()=>{
                         <span>{numOfCartItems ? numOfCartItems:0}</span>
                     </li>
                     <li>
-                        <Link to={"/shop/profile"}><img src={User} alt='home'/></Link>
+                        {
+                            localStorage.getItem("userToken") ? (
+                                <Link to="/profile"><img src={User} alt='home'/></Link>
+                            ):(
+                                <Link to="/login"><img src={User} alt='home'/></Link>
+                            )
+                        }
+                        {/* <Link to={localStorage.getItem("userToen") ? "/profile":"/login"}><img src={User} alt='home'/></Link> */}
                     </li>
                 </ul>
             </div>

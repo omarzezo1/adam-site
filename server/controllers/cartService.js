@@ -45,7 +45,7 @@ exports.addProductToCart = asyncHandler(async (req, res, next) => {
       cart.products[itemIndex] = productItem;
     } else {
       //product does not exists in cart, add new item
-      cart.products.push({ product: productId, color, price: product.price });
+      cart.products.push({ product: productId, color, price: product.priceAfterDiscount });
     }
     // cart = await cart.save();
     // return res.status(201).send(cart);
@@ -54,7 +54,7 @@ exports.addProductToCart = asyncHandler(async (req, res, next) => {
     //no cart for user, create new cart
     cart = await Cart.create({
       cartOwner: req.user._id,
-      products: [{ product: productId, color, price: product.price }],
+      products: [{ product: productId, color, price: product.priceAfterDiscount }],
     });
   }
   // let totalPrice = 0;

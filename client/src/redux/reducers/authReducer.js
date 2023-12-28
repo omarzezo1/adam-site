@@ -1,10 +1,11 @@
-import { CREATE_USER, LOGIN_USER, GET_ME, LOGME_OUT } from "../types"
+import { CREATE_USER, LOGIN_USER, GET_ME, LOGME_OUT, SEND_CODE } from "../types"
 
 const initState = {
     signup: [],
     loginUser: [],
     getMe: [],
-    logout: []
+    logout: [],
+    sendCode: []
 }
 
 const authReducer = (state = initState, action)=>{
@@ -17,7 +18,9 @@ const authReducer = (state = initState, action)=>{
         case GET_ME:
             return {getMe: action.payload}  
         case LOGME_OUT:
-            return {logout: action.payload}       
+            return {logout: action.payload}
+        case SEND_CODE:
+            return {sendCode: action.payload}           
         default:
             return state    
     }

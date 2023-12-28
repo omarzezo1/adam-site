@@ -38,7 +38,7 @@ const ManageOrders = () => {
               {ordersList.length > 0 ? (
                 ordersList.map((order, index) => (
                   <div className="coupon-card" key={index}>
-                    <Link to={`/order-details/${order._id}`}>
+                    <Link to={`/admin/order-details/${order._id}`}>
                       <span className="order-number">#{order.id}</span>
                       <div className="coupon-img"></div>
                       <ul className="coupon-details">

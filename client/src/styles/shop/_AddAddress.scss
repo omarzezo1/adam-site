@@ -127,3 +127,26 @@
         }
     }
 }
+
+@media screen and (max-width: 576px){
+    .add-address-page{
+        .add-address-containers{
+            width: 98%;
+            .msg-wraper{
+                width: 95%;
+            }
+            form{
+                input{
+                    width: 100%;
+                }
+            }
+            .adresses-wraper{
+                .address{
+                    .home-img{
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}

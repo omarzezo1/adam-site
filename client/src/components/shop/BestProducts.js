@@ -46,7 +46,9 @@ const BestProducts = () => {
 
     //get logged user wishlist
     useEffect(() => {
-      dispatch(getLoggedUserWishlist());
+      if(localStorage.getItem("userToken")){
+        dispatch(getLoggedUserWishlist());
+      }
     }, []);
 
   // add all wishlist products to localstorage

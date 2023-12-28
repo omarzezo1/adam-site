@@ -280,3 +280,37 @@
         }
     }
 }
+
+
+@media screen and (max-width: 480px) {
+    .checkout-page {
+        .page-intro {
+            .rec-bottom {
+                bottom: -200px !important;
+            }
+            .container {
+                .page-intro-container {
+                    width: 95%;
+                    .page-title {
+                        width: 95%;
+                        font-size: 55px;
+                    }
+                }
+            }
+        }
+        .checkout-container{
+            width: 95%;
+            flex-direction: column-reverse;
+            flex-wrap: wrap;
+            .shipping-info{
+                flex-shrink: 0;
+                width: 100%;
+            }
+            .cart-items{
+                flex-shrink: 0;
+                width: 100%;
+                margin-bottom: 30px;
+            }
+        }
+    }
+}

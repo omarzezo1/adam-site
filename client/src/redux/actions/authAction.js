@@ -1,4 +1,4 @@
-import {CREATE_USER, LOGIN_USER, GET_ME, LOGME_OUT} from '../types'
+import {CREATE_USER, LOGIN_USER, GET_ME, LOGME_OUT, SEND_CODE} from '../types'
 import baseURL from '../../api/baseURL'
 
 export const createUser = (data)=> async(dispatch)=>{
@@ -36,5 +36,14 @@ export const userLogout = ()=> async(dispatch)=>{
         dispatch({type: LOGME_OUT, payload: res})
     }catch(e){
         dispatch({type: LOGME_OUT, payload: e.response})
+    }
+}
+
+export const getResetCode = (data)=> async(dispatch)=>{
+    try{
+        const res = await baseURL.post('/api/v1/auth/forgotPasswords', data)
+        dispatch({type: SEND_CODE, payload: res})
+    }catch(e){
+        dispatch({type: SEND_CODE, payload: e.response})
     }
 }

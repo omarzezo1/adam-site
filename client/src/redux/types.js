@@ -12,6 +12,7 @@ export const LOGIN_USER = "LOGIN_USER"
 export const CREATE_USER = "CREATE_USER"
 export const GET_ME = "GET_ME"
 export const LOGME_OUT = "LOGME_OUT"
+export const SEND_CODE = "SEND_CODE"
 
 export const CREATE_SIZE = "CREATE_SIZE"
 
@@ -25,6 +26,9 @@ export const GET_ALL_PRODUCTS = "GET_ALL_PRODUCTS"
 export const SINGLE_PRODUCT = "SINGLE_PRODUCT"
 export const DELETE_PRODUCT = "DELETE_PRODUCT"
 export const EDIT_PRODUCT = "EDIT_PRODUCT"
+
+export const GET_ALL_PRODUCT_REVIEWS = "GET_ALL_PRODUCT_REVIEWS"
+export const CREATE_REVIEW = "CREATE_REVIEW"
 
 export const ADD_TO_CART = "ADD_TO_CART"
 export const GET_CART_ITEMS = "GET_CART_ITEMS"
